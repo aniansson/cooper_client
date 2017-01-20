@@ -42,6 +42,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TestController', function($scope) {
+  $scope.gender = ['Female', 'Male']
+  $scope.ageValues = {
+    min: 20,
+    max: 60,
+    value: 20
+  };
+  $scope.distanceValues = {
+    min: 1000,
+    max: 3500,
+    value: 1000
+  };
   $scope.data = {};
   $scope.calculateCooper = function() {
     var person = new Person({
