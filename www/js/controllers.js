@@ -39,4 +39,17 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
-})
+
+.controller('TestController', function($scope) {
+  $scope.data = {};
+  $scope.calculateCooper = function() {
+    var person = new Person({
+      gender: $scope.data.gender,
+      age: $scope.data.age
+    });
+
+    person.assessCooper($scope.data.distance);
+    $scope.person = person;
+    console.log($scope.person)
+  }
+});
