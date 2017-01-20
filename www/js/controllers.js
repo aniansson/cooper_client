@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function ( $rootScope,
+                                  $scope,
+                                  $ionicModal,
+                                  $timeout,
+                                  $auth,
+                                  $ionicLoading) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -36,12 +41,18 @@ angular.module('starter.controllers', [])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function () {
+    $ionicLoading.show({
+      template: 'Logging in...'
+    });
+
     $auth.submitLogin($scope.loginData)
     .then(function (resp) {
       // handle success response
+      $ionicLoading.hide();
       $scope.closeLogin();
     })
     .catch(function (error) {
+      $ionicLoading.hide();
       // handle error response
       $scope.errorMessage = error;
     });
