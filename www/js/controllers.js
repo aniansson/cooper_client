@@ -39,6 +39,7 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+})
 
 .controller('TestController', function($scope) {
   $scope.data = {};
