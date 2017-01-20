@@ -1,0 +1,32 @@
+<ion-view title="Cooper Test">
+  <ion-content>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" class="item item-input" placeholder="Gender" ng-model="data.gender">
+          </label>
+          <label class="item item-input">
+            <input type="text" class="item item-input" placeholder="Age" ng-model="data.age">
+          </label>
+          <label class="item item-input">
+            <input type="text" class="item item-input" placeholder="Distance" ng-model="date.distance">
+          </label>
+            <button class="button button-full button-calm" ng-click="calculateCooper()">Calculate</button>
+        </div>
+
+        <div class="card" ng-if="person">
+          <div class="item item-divider">
+            Cooper Test results
+          </div>
+          <div class="item item-text-wrap">
+            <p>Person: Age {{person.age}}, Gender {{person.gender}}</p>
+            <p>Result: {{person.cooperMessage}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
