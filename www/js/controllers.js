@@ -89,3 +89,12 @@ angular.module('starter.controllers', [])
     console.log($scope.person)
   }
 });
+
+.controller('PerformanceCtrl', function($scope, performanceData) {
+  $scope.saveData = function(){
+
+  };
+  $scope.retrieveData = function(){
+
+  };
+})
