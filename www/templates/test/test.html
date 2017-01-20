@@ -3,17 +3,52 @@
     <div class="row">
       <div class="col">
         <div class="list">
-          <label class="item item-input">
-            <input type="text" class="item item-input" placeholder="Gender" ng-model="data.gender">
-          </label>
-          <label class="item item-input">
-            <input type="text" class="item item-input" placeholder="Age" ng-model="data.age">
-          </label>
-          <label class="item item-input">
-            <input type="text" class="item item-input" placeholder="Distance" ng-model="date.distance">
-          </label>
-            <button class="button button-full button-calm" ng-click="calculateCooper()">Calculate</button>
-        </div>
+          <form name="testdata">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Gender
+              </div>
+              <select
+              ng-model="data.gender"
+              ng-options="option as option for option in gender"
+              required></select>
+            </label>
+
+            <div class="item item-divider">Age
+              <output name="agevalue" for="age"></output>
+            </div>
+            <div class="item range range-positive">
+              <input
+              name="age"
+              type="range"
+              min="{{ageValues.min}}"
+              max="{{ageValues.max}}"
+              value="{{ageValues.value}}"
+              ng-model="data.age"
+              oninput="agevalue.value = age.value"
+              required>{{ageValues.min}}/{{ageValues.max}} yrs
+            </div>
+
+            <div class="item item-divider">Distance
+              <output name="distancevalue" for="distance"></output>
+            </div>
+            <div class="item range range-positive">
+              <input
+              name="distance"
+              type="range"
+              min="{{distanceValues.min}}"
+              max="{{distanceValues.max}}"
+              value="{{distanceValues.value}}"
+              ng-model="data.distance"
+              oninput="distancevalue.value = distance.value"
+              required>{{distanceValues.min}}/{{distanceValues.max}} m
+            </div>
+
+            <button
+            class="button button-full button-calm"
+            ng-click="calculateCooper()"
+            ng-disabled="testdata.$invalid">Get Results</button>
+          </form>
 
         <div class="card" ng-if="person">
           <div class="item item-divider">
