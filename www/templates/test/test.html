@@ -50,14 +50,22 @@
             ng-disabled="testdata.$invalid">Get Results</button>
           </form>
 
-        <div class="card" ng-if="person">
-          <div class="item item-divider">
-            Cooper Test results
+        <div ng-if="person">
+          <div class="card">
+            <div class="item item-divider">
+              Cooper Test results
+            </div>
+            <div class="item item-text-wrap">
+              <p>Person: Age {{person.age}}, Gender {{person.gender}}</p>
+              <p>Result: {{person.cooperMessage}}</p>
+            </div>
           </div>
-          <div class="item item-text-wrap">
-            <p>Person: Age {{person.age}}, Gender {{person.gender}}</p>
-            <p>Result: {{person.cooperMessage}}</p>
-          </div>
+          <button
+            ng-if="currentUser"
+            ng-controller="PerformanceCtrl"
+            class="button button-full button-calm"
+            ng-click="saveData(person)">Save results
+          </button>
         </div>
 
       </div>
