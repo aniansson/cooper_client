@@ -96,7 +96,7 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('PerformanceCtrl', function($scope, performanceData) {
+.controller('PerformanceCtrl', function($scope, performanceData, $ionicLoading, $ionicPopup) {
   $scope.saveData = function(person){
     var data = {performance_data: {data: {message: person.cooperMessage}}}
     $ionicLoading.show({
