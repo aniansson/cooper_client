@@ -92,14 +92,19 @@ angular.module('starter.controllers', [])
 
 .controller('PerformanceCtrl', function($scope, performanceData) {
   $scope.saveData = function(person){
-    data = {performance_data: {data: {message: person.cooperMessage}}}
+    var data = {performance_data: {data: {message: person.cooperMessage}}}
+    $ionicLoading.show({
+      template: 'Saving...'
+    });
     performanceData.save(data, function(response){
-      console.log(response);
+      $ionicLoading.hide();
+      $scope.showAlert('Sucess', response.message);
     }, function(error){
-      console.log(error);
-    })
+      $ionicLoading.hide();
+      $scope.showAlert('Failure', error.statusText);
+    });
   };
-  
+
   $scope.retrieveData = function(){
 
   };
