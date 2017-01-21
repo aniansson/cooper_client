@@ -16,7 +16,8 @@ angular.module('starter.controllers', [])
 
   // Create a current user
   $rootScope.$on('auth:login-success', function(ev, user) {
-    $scope.currentUser = user;
+    $scope.currentUser = angular.extend(user,
+  $auth.retrieveData('auth_headers'));
   });
 
   // Form data for the login modal
