@@ -15,11 +15,14 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng_click="login()">
+        <ion-item ng-if="!currentUser" menu-close ng-click="login()">
           Login
         </ion-item>
         <ion-item menu-close href="#/app/test">
           Cooper Test
+        </ion-item>
+        <ion-item ng-if="currentUser" menu-close ng-controller="PerformanceCtrl" ng-click="RetrieveData()">
+          Saved results
         </ion-item>
       </ion-list>
     </ion-content>
