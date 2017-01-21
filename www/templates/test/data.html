@@ -1,7 +1,18 @@
 <ion-view title="Historical Data">
   <ion-content>
-    <div ng-if="savedDataCollection" ng-repeat="entry in savedDataCollection">
-      <p ng-if="entry.data.message">{{entry.data.message}} - {{entry.created_at | date: 'mediumDate'}}</p>
+    <div class="row">
+      <div class="col">
+        <h5>Saved for {{currentUser.name || currentUser.email}}</h5>
+        <canvas ng-if="savedDataCollection" id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" legend="true"></canvas>
+
+        <canvas ng-if="savedDataCollection" id="radar" class="chart chart-radar" chart-data="radardata" chart-labels="labels"></canvas>
+
+        <ion-list>
+          <ion-item ng-repeat="entry in savedDataCollection" ng-if="savedDataCollection && entry.data.message">
+            <span>{{entry.data.message}} - {{entry.created_at | date: 'mediumDate'}}</span>
+          </ion-item>
+        </ion-list>
+      </div>
     </div>
   </ion-content>
 </ion-view>
