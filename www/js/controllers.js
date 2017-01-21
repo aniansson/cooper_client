@@ -102,10 +102,20 @@ angular.module('starter.controllers', [])
     }, function(error){
       $ionicLoading.hide();
       $scope.showAlert('Failure', error.statusText);
-    });
+    })
   };
 
   $scope.retrieveData = function(){
 
+  };
+
+  $scope.showAlert = function(message, content) {
+    var alertPopup = $ionicPopup.alert({
+      title: message
+      template: content
+    });
+    alertPopup.then(function(res) {
+
+    });
   };
 })
