@@ -101,7 +101,7 @@ angular.module('starter.controllers', [])
     });
     $scope.radardata = [$scope.data];
   });
-  
+
   function getLabels(collection) {
     var uniqueLabels = [];
     for (i = 0; i < collection.length; i++) {
